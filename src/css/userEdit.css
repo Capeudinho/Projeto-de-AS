@@ -1,0 +1,74 @@
+.userEditArea
+{
+    height: 100%;
+}
+
+.userEditArea .label
+{
+    width: 100%;
+    font-size: 15px;
+    color: #999999;
+}
+
+.userEditArea input
+{
+    width: 100%;
+    padding: 5px;
+    border: solid 1px #cccccc;
+    font-size: 15px;
+}
+
+.userEditArea input:focus-within
+{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.userEditArea ::placeholder
+{
+    color: #cccccc;
+}
+
+.userEditArea button
+{
+    width: 100%;
+    padding: 5px 10px;
+    border: solid 1px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.userEditArea button:hover
+{
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.userEditArea .saveChangesButton, .userEditArea .logOutButton
+{
+    border: #cccccc;
+    background-color: #cccccc;
+    margin-bottom: 10px;
+}
+
+.userEditArea .nameInput
+{
+    margin: 5px 0px;
+}
+
+.userEditArea .passwordInputGroup
+{
+    display: grid;
+    grid-template-columns: 1fr 0fr;
+    grid-column-gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.userEditArea .message
+{
+    border-top: solid 1px #cccccc;
+    padding-top: 5px;
+    font-size: 15px;
+    color: #666666;
+}

@@ -1,0 +1,27 @@
+.navbarArea
+{
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    width: 100%;
+    padding: 10px;
+    border-bottom: solid 1px #cccccc;
+}
+
+.navbarArea button
+{
+    width: 100%;
+    padding: 5px 10px;
+    border: solid 1px #cccccc;
+    background-color: #cccccc;
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.navbarArea button:hover
+{
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,61 @@
+.postWriteArea
+{
+    height: 100%;
+}
+
+.postWriteArea .label
+{
+    width: 100%;
+    font-size: 15px;
+    color: #999999;
+}
+
+.postWriteArea input, .postWriteArea textarea
+{
+    width: 100%;
+    margin: 5px 0px;
+    padding: 5px;
+    border: solid 1px #cccccc;
+    font-size: 15px;
+}
+
+.postWriteArea input:focus-within
+{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.postWriteArea ::placeholder
+{
+    color: #cccccc;
+}
+
+.postWriteArea textarea
+{
+    resize: none;
+}
+
+.postWriteArea button
+{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: solid 1px #cccccc;
+    background-color: #cccccc;
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.postWriteArea button:hover
+{
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.postWriteArea .message
+{
+    border-top: solid 1px #cccccc;
+    padding-top: 5px;
+    font-size: 15px;
+    color: #666666;
+}

@@ -1,0 +1,30 @@
+.postListArea
+{
+    height: 100%;
+}
+
+.postListArea .post
+{
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: solid 1px #cccccc;
+}
+
+.postListArea .title
+{
+    margin-bottom: 5px;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.postListArea a
+{
+    text-decoration: none;
+}
+
+.postListArea .ownerName
+{
+    color: #cccccc;
+}

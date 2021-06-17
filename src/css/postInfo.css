@@ -1,0 +1,22 @@
+.postInfoArea
+{
+    height: 100%;
+}
+
+.postInfoArea .title
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+.postInfoArea .text
+{
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: solid 1px #cccccc;
+}
+
+.postInfoArea .ownerName
+{
+    color: #cccccc;
+}

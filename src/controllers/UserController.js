@@ -1,54 +1,75 @@
-const User = require ("../models/User");
-const { idDelete } = require("./PostController");
+const {Router} = require ("express");
+const UserService = require ("../services/userService");
 
-module.exports =
-{
-    async read (request, response)
+const userService = new UserService ();
+const userRoutes = Router ();
+
+userRoutes.get
+(
+    "/userread",
+    async (request, response) =>
     {
-        const users = await User.find ().lean ();
-        return response.json (users);
-    },
+        var users = await userService.read ();
+        response.json (users);
+    }
+);
 
-    async idRead (request, response)
+userRoutes.get
+(
+    "/useridread",
+    async (request, response) =>
     {
         const {_id} = request.query;
-        const user = await User.findById (_id).lean ();
-        return response.json (user);
-    },
+        var user = await userService.idRead (_id);
+        response.json (user);
+    }
+);
 
-    async loginRead (request, response)
+userRoutes.get
+(
+    "/userloginread",
+    async (request, response) =>
     {
         const {name, password} = request.query;
-        const user = await User.findOne ({name, password}).lean ();
-        return response.json (user);
-    },
-
-    async create (request, response)
-    {
-        const {name = "", password = ""} = request.body;
-        const user = await User.findOne ({name});
-        var newUser = null;
-        if (user === null)
-        {
-            newUser = await User.create ({name, password});
-            response.set ("uri", "http://localhost:3333/useridread?_id="+newUser._id);
-        }
-        return response.json (newUser);
-    },
-
-    async idUpdate (request, response)
-    {
-        const {_id} = request.query;
-        const {name = "", password = ""} = request.body;
-        const newUser = await User.findByIdAndUpdate (_id, {name, password}, {new: true}).lean ();
-        response.set ("uri", "http://localhost:3333/useridread?_id="+_id);
-        return response.json (newUser);
-    },
-
-    async idDelete (request, response)
-    {
-        const {_id} = request.query;
-        const oldUser = await User.findByIdAndDelete (_id);
-        return response.json (oldUser);
+        var user = await userService.loginRead (name, password);
+        response.json (user);
     }
-};
+);
+
+userRoutes.post
+(
+    "/usercreate",
+    async (request, response) =>
+    {
+        const {name, password} = request.body;
+        var newUser = await userService.create (name, password);
+        response.set ("uri", "http://localhost:3333/useridread?_id="+newUser._id);
+        response.json (newUser);
+    }
+);
+
+userRoutes.put
+(
+    "/useridupdate",
+    async (request, response) =>
+    {
+        const {_id} = request.query;
+        const {name, password} = request.body;
+        var newUser = await userService.idUpdate (_id, name, password);
+        response.set ("uri", "http://localhost:3333/useridread?_id="+newUser._id);
+        response.json (newUser);
+    }
+);
+
+userRoutes.delete
+(
+    "/useriddelete",
+    async (request, response) =>
+    {
+        const {_id} = request.query;
+        var oldUser = await userService.idDelete (_id);
+        response.json (oldUser);
+    }
+);
+
+module.exports = userRoutes;
